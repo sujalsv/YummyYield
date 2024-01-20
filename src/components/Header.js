@@ -1,5 +1,6 @@
 import { IMG_URL } from "../utils/constants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   // let btnName = "login";
@@ -12,9 +13,17 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            {/* <a href="/about">About Us</a> */}
+            {/* never use anchor tag as it refreshes the whole page  */}
+            <Link to="/about">About US</Link>
+          </li>
+          <li>
+            <Link to="/contact">Conatact Us</Link>
+          </li>
           <li>Cart</li>
           <button
             // }}

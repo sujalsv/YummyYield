@@ -63,3 +63,8 @@ import {Component} from "path";
  (Normal JS utility functions)
 - useState() - Superpowerful State Variables in react
 - useEffect()
+
+# 2 types of routing
+client side routing- has everything as component in it so it does not reload whole page (single page routing)
+
+server side routing- has different pages like index.html, about-us.html, contactus.html and reloads whole page when gets the specific page (network call)
