@@ -2,27 +2,18 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
+import { SWIGGY_API } from "../utils/constants";
 const Body = () => {
-  // Local State Variable - Super powerful variable
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  // const arr = useState(resList);
-  // const [listOfRestaurants, setListOfRestraunt]= arr;
-
-  //   const listOfRestaurants = arr[0];
-  //   const setListOfRestraunt = arr[1];
-
   useEffect(() => {
-    // console.log("useefeect called")
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(SWIGGY_API);
 
     const json = await data?.json();
 
@@ -30,9 +21,6 @@ const Body = () => {
       json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants
-    );
-    console.log(
       json.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
   };
