@@ -2,42 +2,23 @@ import User from "./User";
 import UserClass from "./UserClass";
 import React from "react";
 
-// functional component
-//  const About = () => {
-//   return (
-//     <div>
-//       <h1>About Us</h1>
-//       <h2>Sujal Here</h2>
-//       <User name={"Sujal Virani creating functional component in functional component"} />
-//       <UserClass name={"Sujal creating  class component inn functional component named About.js"} />
-//     </div>
-//   );
-// };
 
-//class component
 class About extends React.Component {
   constructor(props) {
     super(props);
-    // console.log("parent constructor");
+ 
   }
 
   componentDidMount() {
-    // console.log("parent componentdidmount");
+
   }
   render() {
-    // console.log("parent render");
+  
     return (
       <div>
         <h1>About Us</h1>
         <h2>Sujal Here</h2>
-        {/* <User
-          name={
-            "Sujal Virani creating function component in class component About.js"
-          }
-        />
-        <UserClass
-          name={"Sujal creating class component in  class component About.js"}
-        /> */}
+  
         <UserClass
           name={"Sujal creating class component in  class component About.js"}
         />
