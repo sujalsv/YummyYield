@@ -25,11 +25,7 @@ const RestaurantMenu = () => {
     resInfo?.cards[0]?.card?.card?.info;
 
   var { itemCards } =
-    itemCards === undefined
-      ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-          ?.card?.categories[0]
-      : resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-          ?.card;
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
   return (
     <div className="menu">
