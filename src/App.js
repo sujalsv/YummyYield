@@ -65,3 +65,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // root.render(<AppLayout />);
 root.render(<RouterProvider router={appRouter} />);
+
+//VARIOUS WAYS OF CSS: NORMAL CSS, SCSS, SASS, STYLED COMPONENET, MATERIAL UI, BOOTSTRAP, CHAKRA UI, ANT DESIGN, TAILWIND CSS
+// npx tailwind css: npx mean we are executing the tailwind css/ initializing tailwind css in our repository.
