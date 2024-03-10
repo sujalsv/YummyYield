@@ -21,5 +21,20 @@ const RestaurantCard = (props) => {
     </div>
   );
 };
+// higher order component
+//input will be restaurant card and out will be restaurant card with closed label if it is.
+
+export const withClosedLabel = () => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-red-600 text-black rounded-md m-2 px-2">
+          Closed
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
 
 export default RestaurantCard;

@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withClosedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
@@ -9,6 +9,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+  const RestaurantCardClosed = withClosedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -26,7 +28,7 @@ const Body = () => {
       json.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
   };
-
+  console.log(listOfRestaurants);
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false)
@@ -86,7 +88,14 @@ const Body = () => {
             key={restaurant?.info?.id}
             to={"restaurants/" + restaurant?.info?.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {
+              //if the reataurant is closed then add a closed label to it.
+              restaurant.info.availability.Opened ? (
+                <RestaurantCard resData={restaurant} />
+              ) : (
+                <RestaurantCardClosed resData={restaurant} />
+              )
+            }
           </Link>
         ))}
       </div>
