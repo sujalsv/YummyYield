@@ -1,14 +1,15 @@
+import React, { useState } from "react";
 import { useState } from "react";
 
 const User = (props) => {
-  const [count,setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [count2] = useState(10);
   return (
     <div className="user-card">
       <h1>count:{count}</h1>
       <button
         onClick={() => {
-          setCount( count + 1 );
+          setCount(count + 1);
         }}
       >
         count increase

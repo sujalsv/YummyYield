@@ -1,6 +1,7 @@
-import {useRouteError} from "react-router-dom"
+import React, { useState } from "react";
+import { useRouteError } from "react-router-dom";
 const Error = () => {
-    const err= useRouteError();
+  const err = useRouteError();
   return (
     <div>
       <h1>KYA KAR RAHA HEIN</h1>

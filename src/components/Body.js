@@ -1,15 +1,16 @@
+import React, { useState } from "react";
 import RestaurantCard, { withClosedLabel } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../App";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-
   const RestaurantCardClosed = withClosedLabel(RestaurantCard);
 
   useEffect(() => {
@@ -41,6 +42,7 @@ const Body = () => {
 
   // console.log("body rendered")
   //whenever state variable update, react triggers a reconcilliation cycle(re-renders the component)
+  const { setUserName, loggedInUser } = useContext(UserContext);
 
   return (
     <div className="body">
@@ -80,6 +82,14 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          <label>UserName : </label>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="flex flex-wrap">

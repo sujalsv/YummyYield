@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,17 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { useContext } from "react";
+import UserContext from "./utils/UserContext";
+
+import { createContext } from "react";
+
+const UserContext = createContext({
+  loggedInUser: "Default User",
+});
+
+export default UserContext;
+
 // import Grocery from "./components/Grocery";
 
 // lazy loading/on demand loading : initially the code wont be there in our code it will only pop up when there  is a request for that component. it will be done by using named export lazy.
@@ -15,11 +26,21 @@ const Grocery = lazy(() => import("./components/Grocery"));
 // the import we use in above line is not the usaual import that we use, instead it is the function and will take the path of the component.parcel willl bundel all the js files into one file.But wont include grocery in it if we import like this and grocery will be there only when we click on grocery from navbar. It converted into 2 js bundles main bundle and grocery.js . You can see al thsi from the network tab by refreshing it.
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+  useEffect(() => {
+    const data = {
+      name: "sujal virani",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName , setUserName}}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

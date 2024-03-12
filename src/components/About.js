@@ -1,24 +1,28 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import React from "react";
-
+import UserContext from "../utils/UserContext";
 
 class About extends React.Component {
   constructor(props) {
     super(props);
- 
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
   render() {
-  
     return (
       <div>
         <h1>About Us</h1>
         <h2>Sujal Here</h2>
-  
+        <div>
+          <UserContext.Consumer>
+            {/* {(data) => console.log(data)} */}
+            {({ loggedInUser})=>(
+              <h1>{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
+
         <UserClass
           name={"Sujal creating class component in  class component About.js"}
         />
@@ -36,4 +40,4 @@ export default About;
 // go through react life cycle method diagram.
 // what is DOM?
 //what is reconcilliation process?
-//
+// In class based components we do not have hoooks so we cant directly use usecontext hook here, the method to access ot is given above. here usrcontext.consumer is a component and not a hook

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import React from "react";
 
 class UserClass extends React.Component {
@@ -36,10 +37,6 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
-
-
-
-
 
 /****
  *
