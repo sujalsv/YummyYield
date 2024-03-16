@@ -9,8 +9,12 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { useContext } from "react";
 import UserContext from "./utils/UserContext";
-
 import { createContext } from "react";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from  "./components/Cart"
+
+
 
 const UserContext = createContext({
   loggedInUser: "Default User",
@@ -35,12 +39,14 @@ const AppLayout = () => {
   }, []);
 
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{ loggedInUser: userName , setUserName}}>
       <div className="app">
         <Header />
         <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -68,6 +74,10 @@ const appRouter = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       },
 
       //react is very fast and as grocery code is not there inside our code initially so it will throw an error as the rendering time completes bedore the grocery code comes. Hence react provides suspence to wrap inside.
