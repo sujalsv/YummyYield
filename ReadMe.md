@@ -12,7 +12,7 @@
 - Consistent Hashing
 - Code Splitting
 - Differential Bundling - support older browsers
-- Diagnostic
+- Diagnostics
 - Error Handling
 - HTTPs
 - Tree Shaking - remove unused code
