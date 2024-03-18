@@ -85,3 +85,29 @@ we will use a selector to read the data from our store(cart slice in jv object(s
 5. selector
 
 some of the actions in the cart are adding a item, removing a item (small apis to communicate with the redux store)
+
+# types of testing for developers
+
+1. unit testng- test your components in isolation
+2. integration testing
+3. end to end testing- testing application as soon as user enters the website till he leaves the website
+
+react testing library uses jest behind the scenes, a javascript testing frame work. Hence we need to install jest also.
+Also jest uses babel so we need to install babel from teh jest documentation as well.
+
+# setting up JEST
+
+1. install React testing library npm i -D @testing-library/react
+2. install jest npm i -D jest
+3. install babel dependencies FROM JEST DOC npm i --save dev babel jest @babel/core @babel/preset-env
+4. configure babel npm install --save-dev babel-jest @babel/core @babel/preset-env
+5. comfigure parcel configfile to disable default babel transpilation
+6. jest configuration- npx jest --init
+7. install jsdom library npm install --save-dev jest-environment-jsdom
+8. enable jsx inside testcases npm i -D @babel/preset-react
+9. include babel/preset inside my babel-config
+10. install @testing-library/jest-dom
+
+parcel also uses babel behind the scenes, if we make a cofig file to work babel with JEST , it will overwrite and clash with parcel. hence we need to make changes in parv=cel configuration to avoid the clash.
+
+to run the testcases/jest use npmrun test or npx jest

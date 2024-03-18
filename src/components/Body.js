@@ -7,7 +7,6 @@ import { SWIGGY_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../App";
 
-
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -63,8 +62,8 @@ const Body = () => {
               // Filter the restraunt cards and update the UI
               // searchText
               console.log(searchText);
-              const filteredRestaurant = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              const filteredRestaurant = listOfRestaurants?.filter((res) =>
+                res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
               );
 
               setFilteredRestaurant(filteredRestaurant);
@@ -115,3 +114,4 @@ const Body = () => {
 };
 
 export default Body;
+
