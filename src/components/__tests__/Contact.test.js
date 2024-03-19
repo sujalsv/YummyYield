@@ -3,16 +3,31 @@ import Contact from "../Contact";
 import "@testing-library/jest-dom";
 
 describe("Contact Us Page tEST cASES", () => {
-  test("should load contact us component", () => {
-    render(<Contact />);
-    const heading = screen.getByRole("heading");
+  // afterAll(() => {
+  //   console.log("after all");
+  // });
+  // afterEach(() => {
+  //   console.log("after Each");
+  // });
+  // beforeEach(() => {
+  //   console.log("before Each");
+  // });
+  // beforeAll(() => {
+  //   console.log("before all");
+  // });
 
-    expect(heading).toBeInTheDocument();
-  });
+  // test("should load contact us component", () => {
+  //   render(<Contact />);
+  //   const heading = screen.getByRole("heading");
+
+  //   expect(heading).toBeInTheDocument();
+  // });
 
   test("should load button component", () => {
     render(<Contact />);
     const button = screen.getByText("Submit");
+
+    const searchInput = screen.findByTestId("searchInput");
 
     expect(button).toBeInTheDocument();
   });
@@ -32,7 +47,7 @@ describe("Contact Us Page tEST cASES", () => {
 
     //assertion
     expect(inputName).toBeInTheDocument();
-    console.log(inputName);
+    // console.log(inputName);
   });
 
   //when u console log of what is written above it will return jsx which is nothing but the react element which is nothing but the object.

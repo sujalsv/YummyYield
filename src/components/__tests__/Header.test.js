@@ -49,6 +49,6 @@ it("should ahould change login button to logout on click", () => {
 
   fireEvent.click(loginButton); // this will call the mock
 
-  const logOutButton = screen.getByRole("button")
+  const logOutButton = screen.getByRole("button");
   expect(logOutButton).toBeInTheDocument();
 });

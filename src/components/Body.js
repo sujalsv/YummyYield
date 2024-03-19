@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import RestaurantCard, { withClosedLabel } from "./RestaurantCard";
-import { useEffect, useState, useContext } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../App";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
+  const { setUserName, loggedInUser } = useContext(UserContext);
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -41,8 +41,6 @@ const Body = () => {
   }
 
   // console.log("body rendered")
-  //whenever state variable update, react triggers a reconcilliation cycle(re-renders the component)
-  const { setUserName, loggedInUser } = useContext(UserContext);
 
   return (
     <div className="body">
@@ -50,6 +48,7 @@ const Body = () => {
         <div className="search m-4 p-4">
           <input
             type="text"
+            data-testid="searchInput"
             className=" border border-solid border-black"
             value={searchText}
             onChange={(e) => {
@@ -77,7 +76,7 @@ const Body = () => {
               const filteredList = listOfRestaurants.filter(
                 (res) => res.info.avgRating > 4.3
               );
-              setListOfRestaurant(filteredList);
+              setFilteredRestaurant(filteredList);
             }}
           >
             Top Rated Restaurants
@@ -114,4 +113,3 @@ const Body = () => {
 };
 
 export default Body;
-

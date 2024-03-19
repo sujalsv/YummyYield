@@ -9,5 +9,3 @@ it("should render restaurantcard component with props data", () => {
   const name = screen.getByText("Burger King");
   expect(name).toBeInTheDocument();
 });
-
-//EXAMPLE OF UNIT TESTING
